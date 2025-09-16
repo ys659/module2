@@ -18,6 +18,9 @@ def divide(a: float, b: float) -> float:
         raise ValueError("Division by zero is not allowed.")
     return a / b
 
-# Modulus
-def mod(a: float, b: float) -> float:
-    return a % b
+# # Modulus
+# def mod(a: float, b: float) -> float:
+#     if b == 0:
+#         raise ValueError("Modulus by zero is not allowed.")
+#     return a % b
+

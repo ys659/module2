@@ -1,60 +1,59 @@
 """ tests/test_operations.py """
+
 import pytest
-from app.operations import addition, subtraction, multiplication, division
+from app.operations import (
+    add,
+    subtract,
+    multiply,
+    divide
+    )
 
+# Addition tests
+def test_addition():
+    assert add(3, 5) == 8
+    assert add(0, 0) == 0
+    assert add(5, -3) == 2
+    assert add(-2, 6) == 4
+    assert add(-2, -2) == -4
 
-def test_addition_positive():
-    """Test positive cases for addition."""
-    assert addition(2, 3) == 5
-    assert addition(0, 0) == 0
-    assert addition(-1, 1) == 0
+# Subtraction tests
+def test_subtraction():
+    assert subtract(3, 5) == -2
+    assert subtract(0, 0) == 0
+    assert subtract(5, -3) == 8
+    assert subtract(-2, 6) == -8
+    assert subtract(-2, -2) == 0
+    
+# Multiplication tests
+def test_multiplication():
+    assert multiply(3, 5) == 15
+    assert multiply(0, 0) == 0
+    assert multiply(5, -3) == -15
+    assert multiply(-2, 6) == -12
+    assert multiply(-2, -2) == 4
 
+# Division tests
+def test_division():
+    assert divide(3, 5) == 0.6
+    assert divide(5, -3) == pytest.approx(-1.66, abs=1e-2)
+    assert divide(-2, 6) == pytest.approx(-0.33, abs=1e-2)
+    assert divide(-2, -2) == 1
 
-def test_addition_negative():
-    """Test negative cases for addition."""
-    assert addition(-2, -3) == -5
-    assert addition(-1, 0) == -1
+    with pytest.raises(
+            ValueError,
+            match = "Division by zero is not allowed."
+            ):
+        divide(1, 0)
 
+# # Modulus tests
+# def test_mod():
+#     assert mod(3, 1) == 0
+#     assert mod(5, -3) == -1
+#     assert mod(-2, 6) == 4
+#     assert mod(-2, -2) == 0
 
-def test_subtraction_positive():
-    """Test positive cases for subtraction."""
-    assert subtraction(5, 3) == 2
-    assert subtraction(0, 0) == 0
-    assert subtraction(10, 5) == 5
-
-
-def test_subtraction_negative():
-    """Test negative cases for subtraction."""
-    assert subtraction(-5, -3) == -2
-    assert subtraction(3, 5) == -2
-
-
-def test_multiplication_positive():
-    """Test positive cases for multiplication."""
-    assert multiplication(2, 3) == 6
-    assert multiplication(0, 10) == 0
-    assert multiplication(-2, -3) == 6
-
-
-def test_multiplication_negative():
-    """Test negative cases for multiplication."""
-    assert multiplication(2, -3) == -6
-    assert multiplication(-2, 3) == -6
-
-
-def test_division_positive():
-    """Test positive cases for division."""
-    assert division(6, 3) == 2
-    assert division(-6, -3) == 2
-
-
-def test_division_negative():
-    """Test negative cases for division."""
-    assert division(6, -3) == -2
-    assert division(-6, 3) == -2
-
-
-def test_division_by_zero():
-    """Test division by zero."""
-    with pytest.raises(ValueError, match="Division by zero is not allowed."):
-        division(1, 0)
+#     with pytest.raises(
+#             ValueError,
+#             match = "Modulus by zero is not allowed."
+#             ):
+#         mod(3, 0)

@@ -7,8 +7,7 @@ from app.operations import (
     add,
     subtract,
     multiply,
-    divide,
-    mod
+    divide
 )
 
 def calculator():
@@ -58,14 +57,18 @@ def calculator():
                 print(e)
                 continue
 
-        elif operation in ("mod", "modulus"):
-            result = mod(num1, num2)
+        # elif operation in ("mod", "modulus"):
+        #     try:
+        #         result = mod(num1, num2)
+        #     except ValueError as e:
+        #         print(e)
+        #         continue
 
         else:
             print(
             f"Unknown operation '{operation}'. " 
             "Supported operations: add, subtract, "
-            "multiply, divide, mod"
+            "multiply, divide"
             )
             continue
 
