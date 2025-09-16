@@ -58,7 +58,7 @@ def calculator():
                 print(e)
                 continue
 
-        elif operation in ("mod", "modulus"):
+        elif operation in ("mod", "modulus", "modulo"):
             result = mod(num1, num2)
 
         else:
