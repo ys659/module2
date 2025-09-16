@@ -50,7 +50,7 @@ def calculator():
         elif operation in ("multiply", "mul", "times"):
             result = multiply(num1, num2)
 
-        elif operation in ("divide", "division"):
+        elif operation in ("divide", "division", "div"):
             try:
                 result = divide(num1, num2)
             except ValueError as e:
